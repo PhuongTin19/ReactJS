@@ -22,6 +22,12 @@ class MyComponent extends React.Component {
         })
     }
     //
+
+    handleClickButton = () => {
+        console.log('hit the button');
+        alert('click me')
+    }
+    //
     render() {
         let name = 'tin';
 
@@ -36,6 +42,9 @@ class MyComponent extends React.Component {
                 </div>
                 <div className="second">
                     i use state, my channel is {this.state.channel}.{this.state['name']}
+                </div>
+                <div className="third">
+                    <button onClick={() => this.handleClickButton()}>Click me</button>
                 </div>
             </>
             // </React.Fragment>
