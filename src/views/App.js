@@ -6,7 +6,7 @@ import MyComponent from "./Example/MyComponent"
  * JSX
  */
 
-function App() {
+function App() { 
     return (
         <div className="App">
             <header className="App-header">
