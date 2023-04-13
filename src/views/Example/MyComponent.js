@@ -17,14 +17,13 @@ class MyComponent extends React.Component {
     }
     //
     handleOnChangeName = (event) => {
+        // console.log(event.target.value, 'event target: ', event.target, 'event object', event);
         this.setState({
-            name: event.target.value
+             name: event.target.value,
         })
     }
     //
-
     handleClickButton = () => {
-        console.log('hit the button');
         alert('click me')
     }
     //
