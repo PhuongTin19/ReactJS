@@ -2,54 +2,51 @@ import React from "react";
 
 class MyComponent extends React.Component {
 
-    /**
-    *  JSX -> return block
-    *  <React.Fragment>(old version) -> This card is like an invisible div to solve the React block principle.
-    *  <></> (React 16.2.0 - released 11/2017) -> shorter and more convenient
-    *   
-    *  State is a feature in React that helps store and manage variable values over time and manage state in application of you
-    */
-
     state = {
-        channel: 'IT Alone',
-        number: 1,
-        name: 'aguero'
+        firstName: '',
+        lastName: ''
     }
-    //
-    handleOnChangeName = (event) => {
-        // console.log(event.target.value, 'event target: ', event.target, 'event object', event);
+
+    handleChangeFirstName = (event) => {
         this.setState({
-             name: event.target.value,
+            firstName: event.target.value
         })
     }
-    //
-    handleClickButton = () => {
-        alert('click me')
-    }
-    //
-    render() {
-        let name = 'tin';
 
+     handleChangeLastName = (event) => {
+        this.setState({
+            lastName: event.target.value
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault(); //prevent website reload
+        console.log('>>> check data input: ', this.state);
+    }
+
+    render() {
+        console.log('>>> call render: ', this.state);
         return (
-            // <React.Fragment> //version < 16.2.0  
             <>
-                <div className="first">
-                    <input value={this.state.name} type="text"
-                        onChange={(event) => this.handleOnChangeName(event)}
+                <form action="/action_page.php">
+                    <label htmlFor="fname">First name:</label><br />
+                    <input type="text"
+                        value={this.state.firstName}
+                        onChange={(event) => this.handleChangeFirstName(event)} /><br />
+
+                    <label htmlFor="lname">Last name:</label><br />
+                    <input type="text" 
+                        value={this.state.lastName} 
+                        onChange = {(event) => this.handleChangeLastName(event)}
                     />
-                    Hello my component, My name is {name}<br></br>
-                </div>
-                <div className="second">
-                    i use state, my channel is {this.state.channel}.{this.state['name']}
-                </div>
-                <div className="third">
-                    <button onClick={() => this.handleClickButton()}>Click me</button>
-                </div>
+                    <br /><br />
+                    <input type="submit"  
+                        onClick={(event) => this.handleSubmit(event)}
+                    />
+                </form>
             </>
-            // </React.Fragment>
         )
     }
 
 }
-/*Dùng default để export 1 component, dùng { } export nhiều component*/
 export default MyComponent;

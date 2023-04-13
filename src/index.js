@@ -5,6 +5,7 @@ import App from "./views/App";
 import reportWebVitals from "./reportWebVitals";
 import "./styles/global.scss";
 
+
 // React 18
 /*
 const root = ReactDOM.createRoot(document.getElementById("root"));
